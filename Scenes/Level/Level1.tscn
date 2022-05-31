@@ -1,0 +1,288 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Scenes/Characters/Zombie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Characters/Ghost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Level/Level1.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GameObjects/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Enemies/ZombieNPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Enemies/Spider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Enemies/Rats.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GameObjects/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GameObjects/Chandelier.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/GameObjects/TransitionDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Background/Hintergrund .png" type="Texture" id=11]
+[ext_resource path="res://Assets/Interiore/R4_Schrank.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Interiore/R5_Kühlschrank.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Interiore/R5_Esstisch.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Interiore/R6_Hutständer.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Interiore/R3_Bett.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Interiore/R1_Stehlampe.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Interiore/R1_Kommode.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Interiore/Tür.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/GUI/Sprechblase.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/GUI/Menu.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Level 2/Assets/Tor_Abgeschlossen.png" type="Texture" id=22]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10, 200 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 967, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.5, 544.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 167.125, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7.5, 167 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 367, 10 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 51, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 250, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 155.5, 107.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 148.5, 48 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Loch"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rats:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1001, 947 ), Vector2( 851, 874 ), Vector2( 826, 1226 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rats:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1001, 947 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 53, 268.5 )
+
+[node name="Level1" type="Node2D" groups=["key"]]
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 11 )
+
+[node name="InterHolder" type="Node2D" parent="."]
+
+[node name="Kuhlschrank" type="Sprite" parent="InterHolder"]
+position = Vector2( 763, 893 )
+texture = ExtResource( 13 )
+
+[node name="Esstisch" type="Sprite" parent="InterHolder"]
+position = Vector2( 999, 935 )
+texture = ExtResource( 14 )
+
+[node name="Hutstander" type="Sprite" parent="InterHolder"]
+position = Vector2( 1503, 882 )
+texture = ExtResource( 15 )
+
+[node name="Bett" type="Sprite" parent="InterHolder"]
+position = Vector2( 1401, 521 )
+texture = ExtResource( 16 )
+
+[node name="Stehlampe" type="Sprite" parent="InterHolder"]
+position = Vector2( 649, 483 )
+texture = ExtResource( 17 )
+
+[node name="Kommode" type="Sprite" parent="InterHolder"]
+position = Vector2( 459, 514 )
+texture = ExtResource( 18 )
+
+[node name="Tur" type="Sprite" parent="InterHolder"]
+position = Vector2( 1163, 913 )
+texture = ExtResource( 19 )
+
+[node name="Tur2" type="Sprite" parent="InterHolder"]
+position = Vector2( 1646, 915 )
+texture = ExtResource( 19 )
+
+[node name="Tur3" type="Sprite" parent="InterHolder"]
+position = Vector2( 1208, 489 )
+texture = ExtResource( 19 )
+
+[node name="Tur4" type="Sprite" parent="InterHolder"]
+position = Vector2( 787, 489 )
+texture = ExtResource( 19 )
+
+[node name="Wand" type="StaticBody2D" parent="."]
+collision_layer = 1024
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wand"]
+position = Vector2( 242, 807 )
+shape = SubResource( 13 )
+
+[node name="Border" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2( 957, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2( -1.5, 534.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2( 1920, 534.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Border"]
+position = Vector2( 825, 1368 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Border"]
+position = Vector2( 664, 1199 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Border"]
+position = Vector2( 983, 1199 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2( 358, 1025 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Border"]
+position = Vector2( 1222, 1025 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Border"]
+position = Vector2( 1617, 1027 )
+shape = SubResource( 5 )
+
+[node name="KeyHolder" type="StaticBody2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyHolder"]
+position = Vector2( 475, 802 )
+shape = SubResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="KeyHolder"]
+position = Vector2( 475, 886 )
+texture = ExtResource( 12 )
+
+[node name="Loch" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionLoch" type="CollisionShape2D" parent="Loch"]
+position = Vector2( 823, 1026 )
+shape = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="Loch"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loch/Area2D"]
+position = Vector2( 825.5, 1250.5 )
+shape = SubResource( 7 )
+
+[node name="AreaRats" type="Area2D" parent="Loch"]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loch/AreaRats"]
+position = Vector2( 823.5, 1088 )
+shape = SubResource( 9 )
+
+[node name="Zombie" parent="." instance=ExtResource( 1 )]
+position = Vector2( 399, 926 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Ghost" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 328 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Key" parent="." instance=ExtResource( 4 )]
+position = Vector2( 473, 776 )
+gravity_scale = 30.0
+
+[node name="ZombieNPC" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1375, 937 )
+
+[node name="Spider" parent="." instance=ExtResource( 6 )]
+position = Vector2( 933, 377 )
+scale = Vector2( 6, 6 )
+
+[node name="DoorOhneKetten" type="Sprite" parent="."]
+position = Vector2( 625, 918 )
+texture = ExtResource( 19 )
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 624, 918 )
+scale = Vector2( 2, 2 )
+
+[node name="Chandelier" parent="." groups=["reset"] instance=ExtResource( 9 )]
+position = Vector2( 1372, 683 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Loch = SubResource( 10 )
+anims/RESET = SubResource( 11 )
+
+[node name="TransitionDoor" parent="." groups=["door"] instance=ExtResource( 10 )]
+position = Vector2( 1851, 964 )
+Level = "res://Scenes/Level/Level2.tscn"
+
+[node name="Tor_Abgeschlossen" type="Sprite" parent="TransitionDoor"]
+visible = false
+position = Vector2( 5, -49 )
+texture = ExtResource( 22 )
+
+[node name="Rats" parent="." groups=["reset"] instance=ExtResource( 7 )]
+position = Vector2( 1001, 947 )
+level_respawn = "res://Scenes/Level/Level1.tscn"
+
+[node name="Sprechblase" parent="." instance=ExtResource( 20 )]
+margin_left = 1049.0
+margin_top = -367.0
+margin_right = 1089.0
+margin_bottom = -327.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Menu" parent="." instance=ExtResource( 21 )]
+visible = false
+
+[node name="RatDeadArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RatDeadArea2D"]
+position = Vector2( 2048, 829 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="Loch/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="Loch/AreaRats" to="." method="_on_AreaRats_area_entered"]
+[connection signal="body_entered" from="Loch/AreaRats" to="." method="_on_AreaRats_body_entered"]
+[connection signal="area_entered" from="RatDeadArea2D" to="." method="_on_RatDeadArea2D_area_entered"]

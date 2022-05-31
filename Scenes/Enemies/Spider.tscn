@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Enemies/Spider.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Gegner/Animation Spinne/Spinne_Animation_Fertig-8.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.5, 39 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 36, 34.5 )
+
+[node name="Spider" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 1056
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7, -10 )
+scale = Vector2( 0.06, 0.06 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1, 0.5 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

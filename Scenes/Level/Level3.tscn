@@ -1,0 +1,234 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Scenes/Level/Level3.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Characters/Zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Characters/Ghost.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemies/Spider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Enemies/Rats.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GameObjects/Axt.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GameObjects/MineZugang.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GameObjects/Baum.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Level 3/Level 3_Hintergrund.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/GameObjects/TransitionDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/GUI/Sprechblase.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/GUI/Menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Level 2/Assets/Tor_Abgeschlossen.png" type="Texture" id=13]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 199, 10 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 74, 27.5 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 136, 10 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 967, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.5, 544.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 968.5, 10 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rats:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 600, 1017 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Rat_Go"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rats:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 666, 992 ), Vector2( 1040, 971 ), Vector2( 2201, 1014 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+
+[sub_resource type="Animation" id=7]
+resource_name = "Rat_go_2"
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Baum:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "baum"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Baum:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -7.3, -40.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 53, 268.5 )
+
+[node name="Level3" type="Node2D" groups=["baum", "key"]]
+script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 9 )
+
+[node name="Platform" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 824, 572 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 456, 273 )
+rotation = -1.63886
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1371, 1026 )
+shape = SubResource( 11 )
+one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1547, 954 )
+shape = SubResource( 11 )
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 638, 475 )
+shape = SubResource( 12 )
+
+[node name="Border" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2( 957, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2( -1.5, 534.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2( 1920, 534.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2( 959, 1068 )
+shape = SubResource( 3 )
+
+[node name="BaumPoint" type="Position2D" parent="."]
+position = Vector2( 1219, 733 )
+
+[node name="Ghost" parent="." instance=ExtResource( 3 )]
+position = Vector2( 161, 446 )
+scale = Vector2( 0.75, 0.75 )
+collision_mask = 524
+
+[node name="Zombie" parent="." instance=ExtResource( 2 )]
+position = Vector2( 164, 861 )
+scale = Vector2( 3, 3 )
+collision_mask = 1028
+
+[node name="Rats" parent="." instance=ExtResource( 5 )]
+position = Vector2( 600, 1017 )
+level_respawn = "res://Scenes/Level/Level3.tscn"
+
+[node name="Axt" parent="." instance=ExtResource( 6 )]
+position = Vector2( 542, 376 )
+collision_layer = 64
+collision_mask = 13
+gravity_scale = 30.0
+
+[node name="MineZugang" parent="." groups=["axt"] instance=ExtResource( 7 )]
+position = Vector2( 1792, 895 )
+
+[node name="Baum" parent="." groups=["reset"] instance=ExtResource( 8 )]
+position = Vector2( 1367, 916 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/Rat_Go = SubResource( 5 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/Rat_go_2 = SubResource( 7 )
+
+[node name="BaumAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/baum = SubResource( 9 )
+
+[node name="TransitionDoor" parent="." groups=["door"] instance=ExtResource( 10 )]
+position = Vector2( 1848, 975 )
+Level = "res://Scenes/Level/Level4.tscn"
+door_key = true
+
+[node name="Tor_Abgeschlossen" type="Sprite" parent="TransitionDoor"]
+visible = false
+position = Vector2( 5, -49 )
+texture = ExtResource( 13 )
+
+[node name="Spider" parent="." instance=ExtResource( 4 )]
+position = Vector2( 655, 299 )
+scale = Vector2( 4, 4 )
+
+[node name="Sprechblase" parent="." instance=ExtResource( 11 )]
+margin_left = 1047.0
+margin_top = -347.0
+margin_right = 1087.0
+margin_bottom = -307.0
+rect_scale = Vector2( 0.5, 0.5 )
+level = 3
+
+[node name="Menu" parent="." instance=ExtResource( 12 )]
+visible = false
+level = 2
+
+[node name="RatDeadArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RatDeadArea2D"]
+position = Vector2( 2016, 829 )
+shape = SubResource( 13 )
+
+[connection signal="area_entered" from="RatDeadArea2D" to="." method="_on_RatDeadArea2D_area_entered"]

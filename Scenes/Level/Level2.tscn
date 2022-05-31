@@ -1,0 +1,350 @@
+[gd_scene load_steps=60 format=2]
+
+[ext_resource path="res://Scenes/Level/Level2.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Characters/Ghost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Characters/Zombie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemies/Rats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GameObjects/Hebel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GameObjects/StromArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GameObjects/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GameObjects/Hebel2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GameObjects/StromArea2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/GameObjects/TransitionDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/GameObjects/CarDoor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/GameObjects/CarKey.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/GameObjects/BigCarDoor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Level 2/Level_2_Hintergrund.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Level 2/Assets/Strommasten_Vorne.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-9.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-11.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-8.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-10.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-12.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-3.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-4.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-5.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-6.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Strommasten/Frames/Strom_Animation_Fertig-7.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-4.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-5.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-6.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-8.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-9.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-7.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-10.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-12.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-11.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-1.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-2.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Kran/Strom_Animation_Kran_Fertig-3.png" type="Texture" id=39]
+[ext_resource path="res://Scenes/GUI/Sprechblase.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Scenes/GUI/Menu.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Assets/Level 2/Assets/Tor_Offen.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Level 2/Assets/Tor_Abgeschlossen.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Level 2/Assets/Autoklappe_Offen.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Level 2/Assets/Fenster_eingeschlagen.png" type="Texture" id=45]
+[ext_resource path="res://Assets/Level 2/Assets/Hebel.png" type="Texture" id=46]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 967, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 638 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 968.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 130.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 199, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 74, 10 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 200.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 82.375, 9 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 44.5, 95.5 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rats:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1136, 1000 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "RatsExit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rats:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1136, 1000 ), Vector2( 1385, 1028 ), Vector2( 2075, 1018 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "strom_aus",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="Level2" type="Node2D" groups=["key", "strom_animation"]]
+script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 14 )
+
+[node name="Border" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2( 961, -215 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2( -8, 441 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2( 1918, 440 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2( 959.5, 1076 )
+shape = SubResource( 3 )
+
+[node name="KeyHolder" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyHolder"]
+position = Vector2( 200, 161 )
+shape = SubResource( 6 )
+
+[node name="Platform" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1695, 652 )
+shape = SubResource( 8 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1309, 216 )
+shape = SubResource( 9 )
+one_way_collision = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1230, 216 )
+shape = SubResource( 9 )
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 866.5, 322 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1505, 1264 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1274, 902 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1402, 836 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1371.63, 951 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 224, 1299 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 436, 1185 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1524, 731 )
+shape = SubResource( 13 )
+one_way_collision = true
+
+[node name="DeathArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2( 2018, 984 )
+shape = SubResource( 7 )
+
+[node name="AutoKlappeOffen" type="Sprite" parent="."]
+position = Vector2( 1557, 881 )
+texture = ExtResource( 44 )
+
+[node name="FensterKaput" type="Sprite" parent="."]
+position = Vector2( 1419, 888 )
+texture = ExtResource( 45 )
+
+[node name="CarDoor" parent="." groups=["reset"] instance=ExtResource( 11 )]
+position = Vector2( 1419, 887 )
+scale = Vector2( 2, 2 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="BigCarDoor" parent="." groups=["car", "reset"] instance=ExtResource( 13 )]
+position = Vector2( 1557, 882 )
+scale = Vector2( 2, 2 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="Hebel" parent="." groups=["reset"] instance=ExtResource( 5 )]
+position = Vector2( 446, 816 )
+
+[node name="Hebel2" parent="." groups=["hebel", "reset"] instance=ExtResource( 8 )]
+position = Vector2( 1313, 110 )
+
+[node name="Hebelstuck" type="Sprite" parent="Hebel2"]
+visible = false
+position = Vector2( 40, -41 )
+texture = ExtResource( 46 )
+
+[node name="Ghost" parent="." instance=ExtResource( 2 )]
+position = Vector2( 327, 703 )
+
+[node name="Zombie" parent="." instance=ExtResource( 3 )]
+position = Vector2( 142, 921 )
+scale = Vector2( 3, 3 )
+
+[node name="Rats" parent="." groups=["reset"] instance=ExtResource( 4 )]
+position = Vector2( 1136, 1000 )
+level_respawn = "res://Scenes/Level/Level2.tscn"
+
+[node name="StromArea" parent="." groups=["strom"] instance=ExtResource( 6 )]
+position = Vector2( 742, 563 )
+scale = Vector2( 1, 4 )
+
+[node name="StromArea2" parent="." groups=["strom"] instance=ExtResource( 9 )]
+position = Vector2( 578, 145 )
+rotation = 0.764454
+scale = Vector2( 1, 2 )
+
+[node name="StromArea4" parent="." groups=["strom"] instance=ExtResource( 9 )]
+position = Vector2( 762, -63 )
+rotation = 0.764454
+scale = Vector2( 1, 2 )
+
+[node name="StromArea3" parent="." groups=["strom"] instance=ExtResource( 9 )]
+position = Vector2( 242, 451 )
+rotation = -2.22704
+scale = Vector2( 1, 3 )
+
+[node name="Key" parent="." instance=ExtResource( 7 )]
+position = Vector2( 140, 114 )
+gravity_scale = 30.0
+
+[node name="CarKey" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1219, 165 )
+gravity_scale = 30.0
+
+[node name="LeiterPosition" type="Position2D" parent="."]
+position = Vector2( 1493, 422 )
+
+[node name="HebelTeilPosition" type="Position2D" parent="."]
+position = Vector2( 1424, 897 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/RatsExit = SubResource( 5 )
+
+[node name="Tor_Offen" type="Sprite" parent="."]
+position = Vector2( 1859, 541 )
+texture = ExtResource( 42 )
+
+[node name="TransitionDoor" parent="." groups=["door"] instance=ExtResource( 10 )]
+position = Vector2( 1854, 590 )
+Level = "res://Scenes/Level/Level3.tscn"
+door_key = true
+
+[node name="Tor_Abgeschlossen" type="Sprite" parent="TransitionDoor"]
+position = Vector2( 5, -49 )
+texture = ExtResource( 43 )
+
+[node name="StrommastVorne" type="Sprite" parent="."]
+position = Vector2( 865, 541 )
+texture = ExtResource( 15 )
+
+[node name="StrommastVorneBlitz" type="AnimatedSprite" parent="."]
+position = Vector2( 865, 541 )
+frames = SubResource( 11 )
+frame = 11
+playing = true
+
+[node name="KranStromAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( 615, 353 )
+frames = SubResource( 12 )
+frame = 9
+playing = true
+
+[node name="Sprechblase" parent="." instance=ExtResource( 40 )]
+margin_left = 1053.0
+margin_top = -116.0
+margin_right = 1093.0
+margin_bottom = -76.0
+rect_scale = Vector2( 0.5, 0.5 )
+level = 2
+
+[node name="Menu" parent="." instance=ExtResource( 41 )]
+visible = false
+level = 1
+
+[connection signal="area_entered" from="DeathArea" to="." method="_on_DeathArea_area_entered"]

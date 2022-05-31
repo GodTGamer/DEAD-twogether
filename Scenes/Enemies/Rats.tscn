@@ -1,0 +1,66 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scenes/Enemies/Rats.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-6.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-12.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-11.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-10.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-14.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-8.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-16.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-9.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-13.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Ratten Animation/Ratte_Animation-15.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sound/rat_squeeking.mp3" type="AudioStream" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 135, 65.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 141, 72 )
+
+[node name="Rats" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 130
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1, -4.5 )
+shape = SubResource( 2 )
+
+[node name="AreaGhost" type="Area2D" parent="Area2D"]
+collision_layer = 528
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/AreaGhost"]
+position = Vector2( 0, -6 )
+shape = SubResource( 3 )
+
+[node name="RatSqueekingPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -9.613
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D/AreaGhost" to="." method="_on_AreaGhost_body_entered"]
+[connection signal="body_exited" from="Area2D/AreaGhost" to="." method="_on_AreaGhost_body_exited"]

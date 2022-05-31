@@ -1,0 +1,46 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Geist/new/scare-1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Characters/Ghost.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Geist/new/scare-3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Geist/new/scare-2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Geist/new/scare-5.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Geist/new/scare-4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Geist/new/ghost-idle.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Geist/new/scare-6.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Geist/new/walk-1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Geist/new/walk-2.png" type="Texture" id=10]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 74.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "scare",
+"speed": 10.0
+} ]
+
+[node name="Ghost" type="KinematicBody2D"]
+collision_mask = 12
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "scare"
+frame = 4

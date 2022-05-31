@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Zombie/frames3.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Characters/Zombie.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Zombie/idle- transparent.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Zombie/frames2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Zombie/frames4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Zombie/frames5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Zombie/frames1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sound/Footstep.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sound/Zombie_Soundflp.mp3" type="AudioStream" id=9]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 17.0
+height = 9.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 8.0
+} ]
+
+[node name="Zombie" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 2 )
+animation = "walk"
+frame = 2
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 5.0
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="StepTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="StepTimer" to="." method="_on_StepTimer_timeout"]

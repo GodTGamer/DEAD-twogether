@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Level 2/Assets/Strommasten_Hebellos.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/GameObjects/Hebel2.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 41.5, 50.5 )
+
+[node name="Hebel2" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="HebelArea2D" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HebelArea2D"]
+position = Vector2( 0.5, -3.5 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="HebelArea2D" to="." method="_on_HebelArea2D_body_entered"]
+[connection signal="body_exited" from="HebelArea2D" to="." method="_on_HebelArea2D_body_exited"]
