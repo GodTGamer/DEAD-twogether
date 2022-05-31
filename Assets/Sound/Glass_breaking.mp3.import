@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Glass_breaking.mp3-cbae38365448d13c149ee315330511e1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Glass_breaking.mp3"
+dest_files=[ "res://.import/Glass_breaking.mp3-cbae38365448d13c149ee315330511e1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

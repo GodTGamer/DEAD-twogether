@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rat_squeeking.mp3-0d466ad9fbbc905efb8d54e80d81457c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/rat_squeeking.mp3"
+dest_files=[ "res://.import/rat_squeeking.mp3-0d466ad9fbbc905efb8d54e80d81457c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

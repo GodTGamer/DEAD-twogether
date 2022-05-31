@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Strom.mp3-3480f679f963629a11ff1e3ac11862c0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Strom.mp3"
+dest_files=[ "res://.import/Strom.mp3-3480f679f963629a11ff1e3ac11862c0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

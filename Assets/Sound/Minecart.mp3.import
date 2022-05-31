@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Minecart.mp3-61be937937e82d63376ff297df003fc2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Minecart.mp3"
+dest_files=[ "res://.import/Minecart.mp3-61be937937e82d63376ff297df003fc2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
